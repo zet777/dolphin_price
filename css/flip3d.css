@@ -1,0 +1,110 @@
+.wrap{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card-dl1{
+	width: 320px;
+	height: 250px;
+	position: relative;
+	perspective: 1000px; /*Добавляем глубину, чтобы при повороти карточки был эффект 3D*/
+	background: none;
+	transition: all .6s ease;
+}
+.card-dl2{
+	width: 320px;
+	height: 250px;
+	position: relative;
+	perspective: 1000px; /*Добавляем глубину, чтобы при повороти карточки был эффект 3D*/
+	background: none;
+}
+.front1, .back1{
+	position: absolute;
+	width:100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	transition: 1s all ease;
+	backface-visibility: hidden; /*скрываем тыльную часть карточки, это нужно что бы не видеть тыльную часть после поворота на 180 градусов*/
+	border-radius: 20px;
+}
+.front1{
+	background-color: #39f;	
+	box-shadow: 2px 2px 9px 0px #fff;
+}
+
+.front-header{
+	background-size: 100% 100%;
+	background-image: url(../img/card3d2.jpg);
+	background-repeat: no-repeat;
+
+}
+
+
+.back1{
+	background-color: #39f;
+	-webkit-transform: rotateY(180deg);
+	        transform: rotateY(180deg);
+	-webkit-box-shadow: 2px 2px 9px 0px #fff;
+	        box-shadow: 2px 2px 9px 0px #fff;
+}
+
+.back-header{
+	background-size: 100% 100%;
+	background-image: url(../img/format-a1.png);
+	background-repeat: no-repeat;
+}
+
+.back-header-folding{
+	background-size: 100% 100%;
+	background-image: url(../img/falcovka.jpg);
+	background-repeat: no-repeat;
+}
+
+.back-header-cast{
+	background-size: 100% 100%;
+	background-image: url(../img/broshirovka.jpg);
+	background-repeat: no-repeat;
+}
+
+
+.card-dl1:hover .front{
+	transform: rotateY(180deg);/*Переворачиваем карточку*/
+}
+.card-dl1:hover .back{
+	transform: rotateY(360deg);/*Т.к уже перевернута на 180, то при наведении переворачиваем на 360*/
+}
+
+.card-dl2:hover .front{
+	transform: rotateY(180deg);/*Переворачиваем карточку*/
+}
+.card-dl2:hover .back{
+	transform: rotateY(360deg);/*Т.к уже перевернута на 180, то при наведении переворачиваем на 360*/
+}
+
+/* BEGIN CSS for dinamic.js */
+.rotate180 {
+	transform: rotateY(180deg);/*Переворачиваем карточку через скрипт*/
+}
+
+.rotate360 {
+	transform: rotateY(360deg);/*Переворачиваем карточку через скрипт*/
+}
+
+.hard-light{
+	background-blend-mode: hard-light;
+}
+
+
+/* END CSS for bdinamic.js */
